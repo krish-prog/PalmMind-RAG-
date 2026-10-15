@@ -1,0 +1,65 @@
+[project]
+name = "palmmind-rag"
+version = "1.0.0"
+description = "Document ingestion + conversational RAG backend with LLM-driven interview booking (FastAPI, Qdrant, Redis, SQL)."
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [{ name = "Krishna Acharya", email = "krish9805273139@gmail.com" }]
+dependencies = [
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.30",
+    "pydantic>=2.7",
+    "pydantic-settings>=2.3",
+    "email-validator>=2.1",
+    "python-multipart>=0.0.9",
+    "sqlalchemy[asyncio]>=2.0.30",
+    "aiosqlite>=0.20",
+    "asyncpg>=0.29",
+    "qdrant-client>=1.10",
+    "redis>=5.0",
+    "openai>=1.40",
+    "pypdf>=4.2",
+    "httpx>=0.27",
+]
+
+[project.optional-dependencies]
+local = ["fastembed>=0.3"]
+dev = [
+    "pytest>=8.2",
+    "pytest-asyncio>=0.23",
+    "fakeredis>=2.23",
+    "ruff>=0.5",
+    "mypy>=1.10",
+]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["app*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "N", "SIM", "ANN", "ASYNC", "RUF"]
+ignore = ["ANN401", "B008"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["ANN"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+plugins = ["pydantic.mypy"]
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = "tests.*"
+disallow_untyped_defs = false
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]

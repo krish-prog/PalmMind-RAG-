@@ -1,0 +1,15 @@
+Company Overview
+
+Northwind Labs (a fictional company used for this demo) builds conversational chatbots and document intelligence products for businesses.
+
+Office Hours
+
+The office is open from 9 AM to 6 PM, Sunday to Friday. Saturday is a holiday.
+
+Hiring Process
+
+The hiring process has three stages: a take-home technical task, a technical interview, and a final HR discussion. Technical interviews last about 45 minutes and focus on the candidate's submitted task.
+
+Benefits
+
+Employees receive health insurance, paid leave, and a yearly learning budget for courses and conferences.
